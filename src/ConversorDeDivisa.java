@@ -11,9 +11,9 @@ import java.util.Map; // Interfaz para manejar mapas clave-valor.
 public class ConversorDeDivisa { // Clase principal para convertir divisas.
 
     // Método que convierte de pesos chilenos (CLP) a otras monedas.
-    public List<Moneda> pesoADolar() {
+    public List<Moneda> buscarDivisa(String nombre) {
         // URL del servicio de API para obtener tasas de cambio de pesos chilenos.
-        URI uri = URI.create("https://v6.exchangerate-api.com/v6/52c3fb3128b04499240fbb98/latest/CLP");
+        URI uri = URI.create("https://v6.exchangerate-api.com/v6/52c3fb3128b04499240fbb98/latest/"+nombre);
 
         // Crea un cliente HTTP con redirecciones automáticas.
         HttpClient client = HttpClient.newBuilder()

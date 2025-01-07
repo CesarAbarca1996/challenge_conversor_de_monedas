@@ -10,7 +10,6 @@ public class Principal {
         double resultado=0;
         List<Moneda> monedas=new ArrayList<>();
         ConversorDeDivisa conversorDeDivisa= new ConversorDeDivisa();
-        monedas=conversorDeDivisa.pesoADolar();
         while (opcion!=9){
             System.out.println("========== MENÚ DE CONVERSIÓN DE MONEDAS ==========");
             System.out.println("Seleccione la conversión deseada:");
@@ -28,14 +27,67 @@ public class Principal {
             opcion=teclado.nextInt();
             switch (opcion){
                 case 1:
-                    System.out.println("Cantidad de CLP a convertir en dolares: ");
-                    monto=teclado.nextInt();
+                    System.out.println("Cantidad de CLP a convertir en USD: ");
+                    monto= teclado.nextDouble();
+                    monedas=conversorDeDivisa.buscarDivisa("CLP");
                     for (Moneda mon : monedas){
                         if (mon.getNombre().equals("USD")){
                             Moneda moneda = new Moneda(mon.getNombre(),mon.getValor());
                             resultado=monto*moneda.getValor();
                             System.out.println(moneda);
                             System.out.println("El monto de "+monto+"[CLP] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Cantidad de USD a convertir en CLP: ");
+                    monto=teclado.nextDouble();
+                    monedas=conversorDeDivisa.buscarDivisa("USD");
+                    for (Moneda mon : monedas){
+                        if (mon.getNombre().equals("CLP")){
+                            Moneda moneda = new Moneda(mon.getNombre(),mon.getValor());
+                            resultado=monto*moneda.getValor();
+                            System.out.println(moneda);
+                            System.out.println("El monto de "+monto+"[USD] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("Cantidad de ARS a convertir en USD: ");
+                    monto=teclado.nextDouble();
+                    monedas=conversorDeDivisa.buscarDivisa("ARS");
+                    for (Moneda mon : monedas){
+                        if (mon.getNombre().equals("USD")){
+                            Moneda moneda = new Moneda(mon.getNombre(),mon.getValor());
+                            resultado=monto*moneda.getValor();
+                            System.out.println(moneda);
+                            System.out.println("El monto de "+monto+"[ARS] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
+                        }
+                    }
+                    break;
+                case 4:
+                    System.out.println("Cantidad de USD a convertir en ARS: ");
+                    monto=teclado.nextDouble();
+                    monedas=conversorDeDivisa.buscarDivisa("USD");
+                    for (Moneda mon : monedas){
+                        if (mon.getNombre().equals("ARS")){
+                            Moneda moneda = new Moneda(mon.getNombre(),mon.getValor());
+                            resultado=monto*moneda.getValor();
+                            System.out.println(moneda);
+                            System.out.println("El monto de "+monto+"[USD] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
+                        }
+                    }
+                    break;
+                case 5:
+                    System.out.println("Cantidad de COP a convertir en USD: ");
+                    monto=teclado.nextDouble();
+                    monedas=conversorDeDivisa.buscarDivisa("COP");
+                    for (Moneda mon : monedas){
+                        if (mon.getNombre().equals("USD")){
+                            Moneda moneda = new Moneda(mon.getNombre(),mon.getValor());
+                            resultado=monto*moneda.getValor();
+                            System.out.println(moneda);
+                            System.out.println("El monto de "+monto+"[COP] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
                         }
                     }
                     break;
