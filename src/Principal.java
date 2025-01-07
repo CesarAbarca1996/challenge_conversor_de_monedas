@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Principal {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
+
         int opcion=0;
         double monto=0;
         double resultado=0;
@@ -19,8 +21,8 @@ public class Principal {
             System.out.println("4. Dólar a Peso Argentino");
             System.out.println("5. Peso Colombiano a Dólar");
             System.out.println("6. Dólar a Peso Colombiano");
-            System.out.println("7. Peso Peruano a Dólar");
-            System.out.println("8. Dólar a Peso Peruano");
+            System.out.println("7. Peso Brasileño a Dólar");
+            System.out.println("8. Dólar a Peso Brasileño");
             System.out.println("9. Salir");
             System.out.println("==================================================");
             System.out.print("Ingrese su opción (1-9): ");
@@ -88,6 +90,45 @@ public class Principal {
                             resultado=monto*moneda.getValor();
                             System.out.println(moneda);
                             System.out.println("El monto de "+monto+"[COP] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
+                        }
+                    }
+                    break;
+                case 6:
+                    System.out.println("Cantidad de USD a convertir en COP: ");
+                    monto=teclado.nextDouble();
+                    monedas=conversorDeDivisa.buscarDivisa("USD");
+                    for (Moneda mon : monedas){
+                        if (mon.getNombre().equals("COP")){
+                            Moneda moneda = new Moneda(mon.getNombre(),mon.getValor());
+                            resultado=monto*moneda.getValor();
+                            System.out.println(moneda);
+                            System.out.println("El monto de "+monto+"[USD] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
+                        }
+                    }
+                    break;
+                case 7:
+                    System.out.println("Cantidad de BRL a convertir en USD: ");
+                    monto=teclado.nextDouble();
+                    monedas=conversorDeDivisa.buscarDivisa("BRL");
+                    for (Moneda mon : monedas){
+                        if (mon.getNombre().equals("USD")){
+                            Moneda moneda = new Moneda(mon.getNombre(),mon.getValor());
+                            resultado=monto*moneda.getValor();
+                            System.out.println(moneda);
+                            System.out.println("El monto de "+monto+"[BRL] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
+                        }
+                    }
+                    break;
+                case 8:
+                    System.out.println("Cantidad de USD a convertir en BRL: ");
+                    monto=teclado.nextDouble();
+                    monedas=conversorDeDivisa.buscarDivisa("USD");
+                    for (Moneda mon : monedas){
+                        if (mon.getNombre().equals("BRL")){
+                            Moneda moneda = new Moneda(mon.getNombre(),mon.getValor());
+                            resultado=monto*moneda.getValor();
+                            System.out.println(moneda);
+                            System.out.println("El monto de "+monto+"[USD] equivalen a "+resultado+" ["+moneda.getNombre()+"]");
                         }
                     }
                     break;
